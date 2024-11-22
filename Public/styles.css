@@ -1,0 +1,262 @@
+@font-face {
+    font-family: "Amazon";
+    src: url("fonts/Amazon/Ember/Amazon-Ember-Medium.ttf");
+}
+
+@font-face {
+    font-family: "Kollektif";
+    src: url("fonts/kollektif/Kollektif.ttf");
+}
+
+h1, h2, h3 {
+    font-family: "Amazon";
+} 
+
+p, a {
+    font-family: "Kollektif";
+}
+
+.wrapper {
+    width: 1280px;
+    height: auto;
+    margin: 0 auto;
+    background-color: white;
+}
+
+.container {
+    max-width: max-content;
+}
+
+body {
+    background-color: #e5eee6;
+}
+
+.mjclogo {
+   width:9%;
+   float: left;
+}
+
+header {
+text-align: center;}
+
+.navbar{
+    display: flex;
+    justify-items: center;
+}
+
+.navbar a {
+    float: left;
+    font-size: 16px;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+.dropMenu {
+    float : left;
+    overflow: hidden;
+}
+
+.dropbutton {
+    background-color: #ee8306;
+}
+
+.dropMenu .dropbutton {
+margin:0;
+font-family: inherit;
+outline: none;
+font-size: 16px;
+border: none;
+padding: 14px 16px;
+font-weight: bold;
+}
+
+.recettesOptions {
+    display: none;
+    position: absolute;
+    width: 139px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    background-color: #ee8306;
+    z-index: 1;
+}
+
+.recettesOptions a{
+    float: none;
+    display: block;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.recettesOptions a:hover {
+    background-color:  #ee8306;
+}
+
+.dropMenu:hover .recettesOptions{
+    display: block;
+}
+
+h1 {
+    color: #D52D5D;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#accueil, #returnMJC, #propos, #galerie {
+ color: #D52D5D;
+ text-decoration: none;
+ background-color: #69c6b8;
+}
+
+footer {
+    border-top: black;
+    border-top-style: solid;
+    border-top-width: 1px;
+    background-color: #adf77c;
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: space-between;
+}
+
+footer a {
+    color: #060aee;
+}
+
+.legal {
+    padding-left: 40px;
+    padding-right: 20px;
+    border-right: black;
+    border-right-style: solid;
+    border-right-width: 1px;
+}
+
+.contact {
+    padding-right: 40px;
+    padding-left: 20px;
+    border-left: black;
+    border-left-style: solid;
+    border-left-width: 1px;
+}
+
+.ouverture {
+    padding-left: 20px;
+    border-left: black;
+    border-left-style: solid;
+    border-left-width: 1px;
+}
+
+h2 {
+    text-align: center;
+    color: #D52D5D;
+}
+
+.homePage p, .about p {
+    text-align: center;
+}
+
+.homePage img {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.recipeHeader h2 {
+    color: #D52D5D;
+    text-align: left;
+}
+
+.recipeHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    max-width: 30%;
+    margin: 0 auto;
+}
+
+.recipeHeader img {
+    max-width: 100%;
+    height: auto;
+    width: 150px;
+}
+
+.recipeContent {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 90%;
+    margin:0 auto;
+}
+
+.recipeBody {
+    display: flex;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.ingredientPage {
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    width: 50%;
+}
+
+.methodPage {
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    width: 50%;
+}
+
+.recipeAside {
+    padding-bottom: 2em;
+}
+
+.arrows {
+    height: 100%;
+    align-items: center;
+}
+
+.fa-2xl {
+ color: #ee8306;
+ font-size: 5em;
+    
+}
+
+.adminNav {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 5em;
+    padding-bottom: 5em;
+}
+
+.adminNav button {
+    background-color: #69c6b8;
+    color: #D52D5D;
+    font-size: x-large; 
+}
+
+.table img {
+    width: 10em
+}
+
+.adMinButtons {
+    background-color: #69c6b8;
+    color: #D52D5D;
+    border-color: #69c6b8;
+}
+
+.controlButton {
+    color: #ee8306
+}
+
+.hidden {
+    display: none;
+}
