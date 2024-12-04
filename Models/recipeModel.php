@@ -42,11 +42,12 @@ class recipeModel extends dbConnect {
 
     //adds a recipe to the database
     public function addRecipe(recipeObjects $recipe) {
-        $this->request = $this->connection->prepare("INSERT INTO recipetable VALUES (NULL, :recetteTitle, :Ingredients, :recetteImage, :recetteMethode)");
+        $this->request = $this->connection->prepare("INSERT INTO recipetable VALUES (NULL, :recetteTitle, :Ingredients, :recetteImage, :recetteMethode, :recetteFalc)");
         $this->request->bindValue(":recetteTitle", $recipe->getrecetteTitle());
         $this->request->bindValue(":Ingredients", $recipe->getIngredients());
         $this->request->bindValue(":recetteImage", $recipe->getrecetteImage());
         $this->request->bindValue(":recetteMethode", $recipe->getrecetteMethode());
+        $this->request->bindValue(":recetteFalc", $recipe->getrecetteFalc());
         $this->executeTryCatch();
     }
 
@@ -54,13 +55,14 @@ class recipeModel extends dbConnect {
 
     //editer les recettes
     public function updateRecipe($id, recipeObjects $recipe) {
-        $this->request = $this->connection->prepare("UPDATE recipetable SET recetteTitle =:recetteTitle, Ingredients = :Ingredients, recetteImage = :recetteImage, recetteMethode = :recetteMethode
+        $this->request = $this->connection->prepare("UPDATE recipetable SET recetteTitle =:recetteTitle, Ingredients = :Ingredients, recetteImage = :recetteImage, recetteMethode = :recetteMethode, recetteFalc = :recetteFalc
             WHERE recetteId = :recetteId");
             $this->request->bindValue(":recetteId", $id);
             $this->request->bindValue(":recetteTitle", $recipe->getrecetteTitle());
             $this->request->bindValue(":Ingredients", $recipe->getIngredients());
             $this->request->bindValue(":recetteImage", $recipe->getrecetteImage());
             $this->request->bindValue(":recetteMethode", $recipe->getrecetteMethode());
+            $this->request->bindValue(":recetteFalc", $recipe->getrecetteFalc());
             $this->executeTryCatch();
     }
 
@@ -126,7 +128,7 @@ class recipeModel extends dbConnect {
     ////////section qui controle login et securite/////////////////////////////////////
 
     /////fonction de login///////////////////////////
-    public function login(recipeObjects $login) {
+    public function login(adminObjects $login) {
         $testuser = $login->getUserName();
         $testpw = $login->getPassword();
 

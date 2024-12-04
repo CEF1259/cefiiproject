@@ -7,7 +7,9 @@ $title = $recipe->recetteTitle;
 <aside class="recipeAside">
     <div class='recipeHeader'>
         <!--recette title et image sont appelle de bdd, variable recipe est donne par la recipeModel, qui est appelle par la recipeController, qui est appele par la base.php selon la id du recette-->
-        <h2><?php echo $recipe->recetteTitle;?></h2><img src=<?=$recipe->recetteImage?> alt="">
+        <h2><?php echo $recipe->recetteTitle;?></h2>
+        <img src=<?=$recipe->recetteImage?> alt="">
+        <a id="propos" href="index.php?controller=recipes&action=showRecipeFalc&id=<?=$recipe->recetteId?>">Version accessible</a>
     </div>
     <div class='recipeContent'>
         <div class="arrows">

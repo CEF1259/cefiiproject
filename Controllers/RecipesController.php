@@ -12,7 +12,6 @@ class recipesController extends controller
         $list = $recipes->findAll();
     }*/
 
-    //attempts to display a specific recipe, need to work on it and refine it
     public function showRecipe($id)
     {
         //trouver le titre pour une recette
@@ -22,6 +21,14 @@ class recipesController extends controller
         $this->render("recipes/recipe",["recipe"=>$recipe]);    
     }
     ////////////////////////////////////////////////////////////////////////
+
+    public function showRecipeFalc($id) {
+        //trouver le titre pour une recette
+        $recipes = new recipeModel();
+        //$ingredients = new recipeModel();
+        $recipe = $recipes->findRecipe($id);
+        $this->render("recipes/recipeFALC",["recipe"=>$recipe]);
+    }
 }
 
 ?>

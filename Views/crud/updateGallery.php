@@ -1,12 +1,12 @@
 <?php 
-
+/*
 if ( isset( $_SESSION['Admin'] ) ) {
     // Grab user data from the database using the user_id
     // Let them access the "logged in only" pages
 } else {
     // Redirect them to the login page
     header("Location:index.php?controller=crud&action=login");
-}
+}*/
 
 //Handles Password Control
 //require_once "protect.php";

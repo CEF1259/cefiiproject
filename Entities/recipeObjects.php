@@ -10,6 +10,7 @@ class recipeObjects {
  private $recetteMethode;
  private $recetteTitle;
  private $Ingredients;
+ private $recetteFalc;
 
  //pour gallerie
  private $idGallery;
@@ -121,6 +122,27 @@ class recipeObjects {
    return $this;
   }
 
+
+  /**
+  * Get the value of recetteFalc
+  */ 
+ public function getRecetteFalc()
+ {
+  return $this->recetteFalc;
+ }
+
+ /**
+  * Set the value of recetteFalc
+  *
+  * @return  self
+  */ 
+ public function setRecetteFalc($recetteFalc)
+ {
+  $this->recetteFalc = $recetteFalc;
+
+  return $this;
+ }
+
 /////////////////////////////////////////////////////
 //setters et getters pour gallery
 
@@ -208,3 +230,4 @@ class recipeObjects {
  }
 }
 ?>
+ 

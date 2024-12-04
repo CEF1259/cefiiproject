@@ -33,20 +33,25 @@ class crudController extends Controller
      public function addRecipe() 
      {
          //validee les donnees dans la formule
-         if (Form::validatePost($_POST,["Recette","Ingredient","Instructions"])&&Form::validateFiles($_FILES,["picture"])) 
+         if (Form::validatePost($_POST,["Recette","Ingredient","Instructions"])&&Form::validateFiles($_FILES,["picture","pictureFalc"])) 
          {
              //chemin image
              $picture = "images/".$_FILES["picture"]["name"];
- 
+             $pictureFalc = "images/".$_FILES["pictureFalc"]["name"];
              //rayon pour type
              $type = array("jpg"=> "image/jpg", "jpeg"=>"image/jpeg", "gif"=>"image/gif","png"=>"image/png");
  
-             //variables pour type, taile et nom
+             //variables pour type, taile et nom pour image du recette
              $picType = $_FILES["picture"]["type"];
              $picName = $_FILES["picture"]["name"];
              $picSize = $_FILES["picture"]["size"];
+
+            //variables pour type, taile et nom pour image Falc
+             $picTypeFalc = $_FILES["pictureFalc"]["type"];
+             $picNameFalc = $_FILES["pictureFalc"]["name"];
+             $picSizeFalc = $_FILES["pictureFalc"]["size"];
  
-             //verifier extension fichier
+             //verifier extension fichier pour image du recette
              //recuperee extension fichier
              $ext = pathinfo($picName, PATHINFO_EXTENSION);
              if (!array_key_exists($ext,$type)) 
@@ -75,12 +80,42 @@ class crudController extends Controller
                      move_uploaded_file($_FILES["picture"]["tmp_name"],"images/".$_FILES["picture"]["name"]);
                  }
              };
+
+             //verifier image pour image falc
+             $extFalc = pathinfo($picNameFalc, PATHINFO_EXTENSION);
+             if (!array_key_exists($extFalc,$type)) 
+             {
+                 echo "Le format du fichier est incorrect.";
+             }
+             //verifier taille de fichier, max 2mb
+             $maxsize = 2*1024*1024;
+             if ($picSizeFalc > $maxsize) 
+             {
+                 echo "La taille du fichier depasse la limite";
+             }
+ 
+             //verifier mime de fichier
+             if (in_array($picTypeFalc,$type))
+             {
+                 $uniqueNameFalc = uniqid('',true);
+                 $fileFalc = $uniqueNameFalc . "." . $extFalc;
+                 if (file_exists("images/".$fileFalc)) 
+                 {
+                     echo $fileFalc . "existe deja";
+                 } 
+                 else 
+                 {
+                     //upload images
+                     move_uploaded_file($_FILES["pictureFalc"]["tmp_name"],"images/".$_FILES["pictureFalc"]["name"]);
+                 }
+             };
              $recipe = new recipeObjects();
  
              $recipe->setrecetteTitle(htmlspecialchars($_POST["Recette"],ENT_QUOTES));
              $recipe->setIngredients(htmlspecialchars($_POST["Ingredients"],ENT_QUOTES));
              $recipe->setrecetteMethode(htmlspecialchars($_POST["Instructions"],ENT_QUOTES));
              $recipe->setrecetteImage($picture);
+             $recipe->setrecetteFalc($pictureFalc);
  
              $model = new recipeModel();
              $model->addRecipe($recipe);
@@ -101,6 +136,8 @@ class crudController extends Controller
         $form->addTextarea("Instructions", "Faire les instructions pour le recette, en terminant chaque etape avec une point. Il n'y a pas besoin d'énumérer chaque etape", ["id"=>"Instructions","class"=>"form-control","placeholder"=>"","rows"=>10]);
         $form->addLabel("picture","Image du recette",["class"=>"form-label"]);
         $form->addInput("file","picture",["id"=>"picture", "class" => "form-control"]);
+        $form->addLabel("pictureFalc","Image du recette accessible",["class"=>"form-label"]);
+        $form->addInput("file","pictureFalc",["id"=>"pictureFalc", "class" => "form-control"]);
         $form->addInput("submit", "add", ["value"=>"Ajoute une Recette", "class" => "btn btn-primary"]);
         $form->endForm();
  
@@ -136,6 +173,8 @@ class crudController extends Controller
 
      ////////////update (editer) une recette
      public function updateRecipe($id) {
+
+        //updates text entries
         if(Form::validatePost($_POST, ["Recette","Ingredient","Instructions"])) {
             $recipeObject = new recipeObjects();
 
@@ -144,12 +183,15 @@ class crudController extends Controller
             $recipeObject->setrecetteMethode(htmlspecialchars($_POST["Instructions"],ENT_QUOTES));
             
              //si une image est televerse 
-             if(Form::validateFiles($_FILES, ["picture"])) {
+             if(Form::validateFiles($_FILES, ["picture","pictureFalc"])) {
                 move_uploaded_file($_FILES["picture"]["tmp_name"],"images/".$_FILES["picture"]["name"]);
-            
+                move_uploaded_file($_FILES["pictureFalc"]["tmp_name"],"images/".$_FILES["pictureFalc"]["name"]);
+
             //chemin d'image
                 $picture = "images/" . $_FILES["picture"]["name"];
+                $pictureFalc = "images/".$_FILES["pictureFalc"]["name"];
                 $recipeObject->setrecetteImage($picture);
+                $recipeObject->setrecetteFalc($pictureFalc);
             }
             //s'il n'y a pas une nouvelle image, ancien est gardee
             else{
@@ -181,6 +223,9 @@ class crudController extends Controller
         $form->addLabel("picture","Image du recette",["class"=>"form-label"]);
         $form->addInput("file","picture",["id"=>"picture", "class" => "form-control"]);
         $form->addInput("text", "hidden", ["id"=>"hidden", "class" => "form-control", "value"=>$recipeObject->recetteImage, "hidden"=>""]);
+        $form->addLabel("picture","Image Accessible",["class"=>"form-label"]);
+        $form->addInput("file","pictureFalc",["id"=>"pictureFalc", "class" => "form-control"]);
+        $form->addInput("text", "hidden", ["id"=>"hidden", "class" => "form-control", "value"=>$recipeObject->recetteFalc, "hidden"=>""]);
         $form->addInput("submit", "update", ["value"=>"modifier", "class" => "btn btn-primary"]);
         $form->endForm();
 
@@ -346,7 +391,7 @@ class crudController extends Controller
      //control l'authentication et controle de mot de pass
      public function login() {
         if(Form::validatePost($_POST, ["Username","Password"])) {
-            $login = new recipeObjects();
+            $login = new adminObjects();
 
             $login->setUsername(htmlspecialchars($_POST["Username"], ENT_QUOTES));
             $login->setPassword(htmlspecialchars($_POST["Password"], ENT_QUOTES));
@@ -376,10 +421,6 @@ class crudController extends Controller
 
         //renders form, views\form
         $this->render('crud/login',["login"=>$form->getformElements()]);
-
-
      }
-
-
 
 }

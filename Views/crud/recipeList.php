@@ -1,12 +1,12 @@
 <?php
-
+/*
 if ( isset( $_SESSION['Admin'] ) ) {
     // Grab user data from the database using the user_id
     // Let them access the "logged in only" pages
 } else {
     // Redirect them to the login page
     header("Location:index.php?controller=crud&action=login");
-}
+}*/
 
 
 //Handles Password Control
@@ -28,6 +28,7 @@ $title ="Liste des recettes pour admin";
                 <th scope="col">Ingredients</th>
                 <th scope="col">Instructions</th>
                 <th scope="col">Image</th>
+                <th scope="col">Image Accessible</th>
             </tr>
         </thead>
         <?php 
@@ -38,6 +39,7 @@ $title ="Liste des recettes pour admin";
                     echo "<td>" .$value->Ingredients . "</td>";
                     echo "<td>" .$value->recetteMethode . "</td>";
                     echo "<td><img src='$value->recetteImage' class='picture'></img></td>";
+                    echo "<td><img src='$value->recetteFalc' class='picture'></img></td>";
                     echo "<td><a href='index.php?controller=CRUD&action=updateRecipe&id=$value->recetteId'><i class='fas fa-pen controlButton'></i></a></td>";
                     echo "<td><a href='index.php?controller=CRUD&action=deleteRecipe&id=$value->recetteId'><i class='fas fa-trash controlButton'></i></a></td>";
                     echo "</tr>"; 

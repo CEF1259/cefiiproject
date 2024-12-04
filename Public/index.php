@@ -10,6 +10,7 @@ use cefiiproject\Core\router;
 
 //this is the main index file. It is what the user sees and loads content from Base
 
+
 //starts session
 session_start();
 
