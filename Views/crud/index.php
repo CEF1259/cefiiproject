@@ -7,9 +7,7 @@ if ($_SESSION['username'] == "Admin") {
 } else {
     // Redirect them to the login page
     header("Location:index.php?controller=crud&action=login");
-}*/
-
-
+}
 
 $title = "Livre des Recettes BackEnd - MJC seulement"
 ?>

@@ -6,8 +6,7 @@ if ($_SESSION['username'] == "Admin") {
 } else {
     // Redirect them to the login page
     header("Location:index.php?controller=crud&action=login");
-}*/
-
+}
 //Handles Password Control
 //require_once "protect.php";
 //use cefiiproject\crud\protect;

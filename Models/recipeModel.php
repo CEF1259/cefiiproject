@@ -128,7 +128,7 @@ class recipeModel extends dbConnect {
     ////////section qui controle login et securite/////////////////////////////////////
 
     /////fonction de login///////////////////////////
-    public function login(adminObjects $login) {
+    public function login(recipeObjects $login) {
         $testuser = $login->getUserName();
         $testpw = $login->getPassword();
         //var_dump($testuser);
