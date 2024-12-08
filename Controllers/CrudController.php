@@ -391,7 +391,7 @@ class crudController extends Controller
      //control l'authentication et controle de mot de pass
      public function login() {
         if(Form::validatePost($_POST, ["Username","Password"])) {
-            $login = new adminObjects();
+            $login = new recipeObjects();
 
             $login->setUsername(htmlspecialchars($_POST["Username"], ENT_QUOTES));
             $login->setPassword(htmlspecialchars($_POST["Password"], ENT_QUOTES));
