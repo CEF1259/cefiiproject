@@ -1,6 +1,6 @@
 <?php
 
-if ( isset( $_SESSION['Admin'] ) ) {
+if ($_SESSION['username'] == "Admin") {
     // Grab user data from the database using the user_id
     // Let them access the "logged in only" pages
 } else {

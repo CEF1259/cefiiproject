@@ -1,7 +1,7 @@
 <?php
 //session already started in public index file
-/*
-if ( isset( $_SESSION['Admin'])) {
+
+if ($_SESSION['username'] == "Admin") {
     // Grab user data from the database using the user_id
     // Let them access the "logged in only" pages
 } else {
@@ -9,10 +9,6 @@ if ( isset( $_SESSION['Admin'])) {
     header("Location:index.php?controller=crud&action=login");
 }*/
 
-//Handles Password Control
-//require_once "protect.php";
-//use cefiiproject\crud\protect;
-//https://gist.github.com/eric1234/4692807
 
 
 $title = "Livre des Recettes BackEnd - MJC seulement"

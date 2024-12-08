@@ -398,14 +398,15 @@ class crudController extends Controller
 
             $recipeModel = new recipeModel;
             $user = $recipeModel->login($login);
-
-            if($user = true) {
+            //var_dump($user);
+            if($user === true) {
                 $_SESSION["username"] = "Admin";
-                echo ("<script> window.location='index.php?controller=crud&action=index'</script>");
+                header("Location:index.php?controller=crud&action=index");
+                //echo ("<script> window.location='index.php?controller=crud&action=index'</script>");
             }
-            else if ($user = false) {
-                echo "<script>alert('le mot de pass ou credentials sont incorrect')</script>";
-                echo "<script>console.log('le mot de pass ou credentials sont incorrect')</script>";
+            else if ($user === false) {
+                echo ("<script>alert('le mot de pass ou credentials sont incorrect')</script>");
+                echo ("<script>console.log('le mot de pass ou credentials sont incorrect')</script>");        
             }
         }
 
@@ -420,7 +421,12 @@ class crudController extends Controller
         $form->endForm();
 
         //renders form, views\form
-        $this->render('crud/login',["login"=>$form->getformElements()]);
+        $this->render('crud/login',["user"=>$form->getformElements()]);
      }
+
+     public function logout() {
+       $this->render("crud/logout");
+     }
+
 
 }

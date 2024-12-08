@@ -131,6 +131,8 @@ class recipeModel extends dbConnect {
     public function login(adminObjects $login) {
         $testuser = $login->getUserName();
         $testpw = $login->getPassword();
+        //var_dump($testuser);
+        //var_dump($testpw);
 
         //selectionner une entry de la tableau userstable table par rapport de nom utilisateur
         $this->request = $this->connection->prepare("SELECT*FROM userstable WHERE UserName = :UserName AND Password = :Password");
@@ -138,15 +140,19 @@ class recipeModel extends dbConnect {
         $this->request->bindparam(":Password", $testpw);
         $this->request->execute();
         $user = $this->request->fetch();
-
+        var_dump($user);
+        
         //retour vrai ou faux selon le test password, qui est utiliser par la controller.
         //si vrai la session est cree
+        //no encrypytion because must be simple, so no password_verify
         if ($user) {
-            if((password_verify($testpw, $testuser)))  {
+              
                 $user = true;
+                var_dump("here 1");
             }
             else {
                 $user = false;
+                var_dump("here 2");
             }
             return $user;
         }
@@ -189,5 +195,5 @@ class recipeModel extends dbConnect {
         return $recipeTitle;
     }
     */
-}
+
 ?>

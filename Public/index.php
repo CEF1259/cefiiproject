@@ -13,6 +13,7 @@ use cefiiproject\Core\router;
 
 //starts session
 session_start();
+//var_dump($_SESSION);
 
 include '../autoloader.php';
 autoloader::register();
