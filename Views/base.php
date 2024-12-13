@@ -38,10 +38,10 @@ use cefiiproject\Models\recipeModel;
                 </header> 
                         <div class="navbar">
                             <a id="returnMJC" href="https://mjcsaumur.com/">Retour au site MJC</a>
-                            <a id="accueil" href="index.php">Accueil</a>
+                            <a id="accueil" href="index.php">Accueil &nbsp; <i class="fa-solid fa-house"></i></a>
                             <div class="dropMenu">
                                 <button class="dropbutton">
-                                 Nos Recettes<i class="fa fa-caret-down"></i>
+                                 Nos Recettes<i class="fa fa-caret-down"> &nbsp; <i class="fa-solid fa-utensils"></i></i>
                                 </button>
                                 <div class="recettesOptions">
                                     <?php 
@@ -55,8 +55,8 @@ use cefiiproject\Models\recipeModel;
                                     ?>
                                 </div>
                             </div>
-                            <a id="propos" href="index.php?controller=home&action=about">A propos de nous</a>
-                            <a id="galerie" href="index.php?controller=gallery&action=gallery">Galerie par des enfants</a>
+                            <a id="propos" href="index.php?controller=home&action=about">A propos de nous &nbsp; <i class="fa-solid fa-question"></i></a>
+                            <a id="galerie" href="index.php?controller=gallery&action=gallery">Galerie par des enfants &nbsp; <i class="fa-solid fa-image"></i></a>
                         </div>
         
             <main>

@@ -18,7 +18,7 @@ p, a {
 
 .wrapper {
     width: 1280px;
-    height: auto;
+    height: 100%;
     margin: 0 auto;
     background-color: white;
 }
@@ -261,3 +261,22 @@ h2 {
     display: none;
 }
 
+.paragraph {
+    height: auto;
+    width: auto;
+}
+
+/*Mobile*/
+@media screen and (max-width:600px) {
+    .wrapper {
+        max-width:600px
+    }
+
+    .navbar {
+        flex-direction: column;
+    }
+
+    footer{
+        flex-direction: column;
+    }
+}
