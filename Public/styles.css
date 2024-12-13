@@ -23,9 +23,6 @@ p, a {
     background-color: white;
 }
 
-.container {
-    max-width: max-content;
-}
 
 body {
     background-color: #e5eee6;
@@ -272,6 +269,10 @@ h2 {
         max-width:600px
     }
 
+    .container {
+        width:50%;
+    }
+
     .navbar {
         flex-direction: column;
     }
@@ -279,4 +280,5 @@ h2 {
     footer{
         flex-direction: column;
     }
+
 }
