@@ -13,7 +13,4 @@ class HomeController extends Controller
     $this->render('Home/propos');
     }
 }
-
-
-
 ?>
