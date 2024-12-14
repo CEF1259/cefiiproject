@@ -9,7 +9,7 @@ class recipesController extends controller
     public function listRecipes() {
         $recipes = new recipeModel();
         $list = $recipes->findAll();
-        $this->render("recipes/listRecipes",[recipe=>$recipe]);
+        $this->render("recipes/listRecipes",["list"=>$list]);
     }
 
     public function showRecipe($id)

@@ -1,3 +1,8 @@
+<?php 
+namespace cefiiproject\Views;
+use cefiiproject\Models\recipeModel;
+?>
+
 <!DOCTYPE html>
 <!--start of html wrapper-->
 <html>
@@ -34,13 +39,22 @@
                         <div class="navbar">
                             <a id="returnMJC" href="https://mjcsaumur.com/">Retour au site MJC</a>
                             <a id="accueil" href="index.php">Accueil &nbsp; <i class="fa-solid fa-house"></i></a>
-
                             <div class="dropMenu">
                                 <button class="dropbutton">
-                                <a href='index.php?controller=recipes&action=listRecipes'>Nos Recettes &nbsp; <i class="fa-solid fa-utensils"></i></a>
+                                 Nos Recettes<i class="fa fa-caret-down"> &nbsp; <i class="fa-solid fa-utensils"></i></i>
                                 </button>
+                                <div class="recettesOptions">
+                                    <?php 
+                                    //crée un boucle qui rempli le menu dropdown avec entrées de bdd
+                                        $recipe = new recipeModel;
+                                        $list = $recipe->findAll();
+
+                                        foreach ($list as $value) {
+                                            echo "<a href='index.php?controller=recipes&action=showRecipe&id=$value->recetteId'>$value->recetteTitle</a>";
+                                        }
+                                    ?>
+                                </div>
                             </div>
-                            
                             <a id="propos" href="index.php?controller=home&action=about">A propos de nous &nbsp; <i class="fa-solid fa-question"></i></a>
                             <a id="galerie" href="index.php?controller=gallery&action=gallery">Galerie par des enfants &nbsp; <i class="fa-solid fa-image"></i></a>
                         </div>

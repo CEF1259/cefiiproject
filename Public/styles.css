@@ -65,8 +65,17 @@ font-family: inherit;
 outline: none;
 font-size: 16px;
 border: none;
-padding: 14px 16px;
 font-weight: bold;
+color: black;
+}
+
+.dropbutton a {
+    color:black;
+}
+
+.bigger {
+    font-size: 5em;
+    color: #ee8306;
 }
 
 .recettesOptions {
