@@ -156,11 +156,13 @@ class crudController extends Controller
             $recipe = new recipeModel();
             $recipe->deleteRecipe($id);
             //this redirects to list
-            header("Location:index.php?controller=crud&action=recipeList");
+            echo ("<script> window.location='index.php?controller=crud&action=recipeList'</script>");
+            //header("Location:index.php?controller=crud&action=recipeList");
         } 
         elseif (isset($_POST['false'])){
             //this redirecs to list
-            header("Location:index.php?controller=crud&action=recipeList");
+            echo ("<script> window.location='index.php?controller=crud&action=recipeList'</script>");
+            //header("Location:index.php?controller=crud&action=recipeList");
         }
         
         else {
@@ -205,7 +207,8 @@ class crudController extends Controller
             $recipe->updateRecipe($id, $recipeObject);
 
             //dirige vers le liste
-            header("Location:index.php?controller=crud&action=recipeList");
+            echo ("<script> window.location='index.php?controller=crud&action=recipeList'</script>");
+            //header("Location:index.php?controller=crud&action=recipeList");
         }
         else{
             $error = !empty($_POST)?"Le formulaire n'a pas ete correctement rempli" :"";
@@ -326,11 +329,13 @@ class crudController extends Controller
             $gallery = new recipeModel();
             $gallery->deleteGallery($id);
             //this redirects to list
-            header("Location:index.php?controller=crud&action=galleryList");
+            echo ("<script> window.location='index.php?controller=crud&action=galleryList'</script>");
+            //header("Location:index.php?controller=crud&action=galleryList");
         } 
         elseif (isset($_POST['false'])){
             //this redirecs to list
-            header("Location:index.php?controller=crud&action=galleryList");
+            echo ("<script> window.location='index.php?controller=crud&action=galleryList'</script>");
+            //header("Location:index.php?controller=crud&action=galleryList");
         }
         
         else {
@@ -369,7 +374,8 @@ class crudController extends Controller
             $gallery->updateGallery($id, $galleryObject);
 
             //dirige vers le liste
-            header("Location:index.php?controller=crud&action=galleryList");
+            echo ("<script> window.location='index.php?controller=crud&action=galleryList'</script>");
+            //header("Location:index.php?controller=crud&action=galleryList");
         }
             else {
                 $error = !empty($_POST)?"Le formulaire n'a pas ete correctement rempli" :"";
