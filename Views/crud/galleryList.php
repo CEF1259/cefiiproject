@@ -29,7 +29,7 @@ $title ="Liste des images par enfants pour admin";
                     echo "<td>" .$value->idgallery. "</td>";
                     echo "<td><img src='$value->image' class='picture></img>'</td>";
                    //echo "<td><a href='index.php?controller=CRUD&action=updateGallery&id=$value->idgallery'><i class='fas fa-pen controlButton'></i></a></td>";
-                    echo "<td><a href='index.php?controller=CRUD&action=deleteGallery&id=$value->idgallery'><i class='fas fa-trash controlButton'></i></a></td>";
+                    echo "<td><a href='index.php?controller=crud&action=deleteGallery&id=$value->idgallery'><i class='fas fa-trash controlButton'></i></a></td>";
                     echo "</tr>"; 
                 }
             ?>

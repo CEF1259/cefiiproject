@@ -27,7 +27,7 @@
     <body>  
     <div class="wrapper">
         <div class="container"> 
-           <img class = "mjclogo" src="images/logoMJC ok" alt="mjc logo">
+           <img class = "mjclogo" src="images/logomjcok.png" alt="mjc logo">
                 <header>
                     <h1>Les Recettes du MJC<h1>
                 </header> 

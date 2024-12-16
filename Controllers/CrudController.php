@@ -405,8 +405,8 @@ class crudController extends Controller
             //var_dump($user);
             if($user === true) {
                 $_SESSION["username"] = "Admin";
-                header("Location:index.php?controller=crud&action=index");
-                //echo ("<script> window.location='index.php?controller=crud&action=index'</script>");
+                //header("Location:index.php?controller=crud&action=index");
+                echo ("<script> window.location='index.php?controller=crud&action=index'</script>");
             }
             else if ($user === false) {
                 echo ("<script>alert('le mot de pass ou credentials sont incorrect')</script>");

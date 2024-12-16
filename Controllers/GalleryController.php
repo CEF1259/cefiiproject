@@ -7,7 +7,7 @@ namespace cefiiproject\Controllers;
 use cefiiproject\Models\recipeModel;
 
 
-class galleryController extends Controller
+class GalleryController extends Controller
 {
     //montre le page gallery dans recipes, appelle par base.php
     public function gallery() {
@@ -18,7 +18,7 @@ class galleryController extends Controller
         //trouve tous les entrees dans la db
         $list = $gallery->findallGallery();
         //renders gallery on gallery.php, defines list from galleryModel
-        $this->render("gallery/gallery",['list'=>$list]);
+        $this->render("Gallery/gallery",['list'=>$list]);
     }
 }
 

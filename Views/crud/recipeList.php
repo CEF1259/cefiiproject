@@ -36,8 +36,8 @@ $title ="Liste des recettes pour admin";
                     echo "<td>" .$value->recetteMethode . "</td>";
                     echo "<td><img src='$value->recetteImage' class='picture'></img></td>";
                     echo "<td><img src='$value->recetteFalc' class='picture'></img></td>";
-                    echo "<td><a href='index.php?controller=CRUD&action=updateRecipe&id=$value->recetteId'><i class='fas fa-pen controlButton'></i></a></td>";
-                    echo "<td><a href='index.php?controller=CRUD&action=deleteRecipe&id=$value->recetteId'><i class='fas fa-trash controlButton'></i></a></td>";
+                    echo "<td><a href='index.php?controller=crud&action=updateRecipe&id=$value->recetteId'><i class='fas fa-pen controlButton'></i></a></td>";
+                    echo "<td><a href='index.php?controller=crud&action=deleteRecipe&id=$value->recetteId'><i class='fas fa-trash controlButton'></i></a></td>";
                     echo "</tr>"; 
                 }
             ?>

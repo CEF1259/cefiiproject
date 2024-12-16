@@ -3,13 +3,13 @@ namespace cefiiproject\Controllers;
 
 use cefiiproject\Models\recipeModel;
 
-class recipesController extends controller
+class recipesController extends Controller
 {
     //montre le page recipe1 dans recipes, appelle par base.php
     public function listRecipes() {
         $recipes = new recipeModel();
         $list = $recipes->findAll();
-        $this->render("recipes/listRecipes",["list"=>$list]);
+        $this->render("Recipes/listRecipes",["list"=>$list]);
     }
 
     public function showRecipe($id)
@@ -18,7 +18,7 @@ class recipesController extends controller
         $recipes = new recipeModel();
         //$ingredients = new recipeModel();
         $recipe = $recipes->findRecipe($id);
-        $this->render("recipes/recipe",["recipe"=>$recipe]);    
+        $this->render("Recipes/recipe",["recipe"=>$recipe]);    
     }
     ////////////////////////////////////////////////////////////////////////
 
@@ -27,7 +27,7 @@ class recipesController extends controller
         $recipes = new recipeModel();
         //$ingredients = new recipeModel();
         $recipe = $recipes->findRecipe($id);
-        $this->render("recipes/recipeFALC",["recipe"=>$recipe]);
+        $this->render("Recipes/recipeFALC",["recipe"=>$recipe]);
     }
 }
 
