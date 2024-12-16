@@ -55,8 +55,8 @@ class recipeModel extends dbConnect {
 
     //editer les recettes
     public function updateRecipe($id, recipeObjects $recipe) {
-        $this->request = $this->connection->prepare("UPDATE recipetable SET recetteTitle =:recetteTitle, Ingredients = :Ingredients, recetteImage = :recetteImage, recetteMethode = :recetteMethode, recetteFalc = :recetteFalc
-            WHERE recetteId = :recetteId");
+        $this->request = $this->connection->prepare("UPDATE recipetable SET recetteTitle =:recetteTitle, Ingredients = :Ingredients, 
+            recetteImage = :recetteImage, recetteMethode = :recetteMethode, recetteFalc = :recetteFalc WHERE recetteId = :recetteId");
             $this->request->bindValue(":recetteId", $id);
             $this->request->bindValue(":recetteTitle", $recipe->getrecetteTitle());
             $this->request->bindValue(":Ingredients", $recipe->getIngredients());
@@ -140,7 +140,7 @@ class recipeModel extends dbConnect {
         $this->request->bindparam(":Password", $testpw);
         $this->request->execute();
         $user = $this->request->fetch();
-        var_dump($user);
+        //var_dump($user);
         
         //retour vrai ou faux selon le test password, qui est utiliser par la controller.
         //si vrai la session est cree
@@ -148,11 +148,11 @@ class recipeModel extends dbConnect {
         if ($user) {
               
                 $user = true;
-                var_dump("here 1");
+                //var_dump("here 1");
             }
             else {
                 $user = false;
-                var_dump("here 2");
+                //var_dump("here 2");
             }
             return $user;
         }

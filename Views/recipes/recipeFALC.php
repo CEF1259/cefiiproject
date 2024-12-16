@@ -19,7 +19,7 @@ $title = $recipe->recetteTitle;
             </div>
         </div>
 
-        <div class="recipeBody">
+        <div class="recipeBodyFalc">
         <img src=<?=$recipe->recetteFalc?> alt="">
         </div>
 

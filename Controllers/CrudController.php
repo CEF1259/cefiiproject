@@ -131,9 +131,12 @@ class crudController extends Controller
         $form->addLabel("Recette","Nom du Recette",["class"=>"form-label"]);
         $form->addInput("text","Recette", ["id"=>"recetteTitre","class"=>"form-control","placeholder"=>"Ajouter un recette"]);
         $form->addLabel("Ingredients","Ingredients",["class"=>"form-label"]);
-        $form->addTextarea("Ingredients", "Faire une liste des ingredients, leur unite de measure et leur quantité. Termine chaque entrée avec une virgule", ["id"=>"ingredients","class"=>"form-control","placeholder"=>"","rows"=>10]);
+        $form->addTextarea("Ingredients", "Faire une liste des ingredients, leur unite de measure et leur quantité. Termine chaque entrée avec une virgule", 
+        ["id"=>"ingredients","class"=>"form-control","placeholder"=>"","rows"=>10]);
         $form->addLabel("Instructions","Instructions",["class"=>"form-label"]);
-        $form->addTextarea("Instructions", "Faire les instructions pour le recette, en terminant chaque etape avec une point. Il n'y a pas besoin d'énumérer chaque etape", ["id"=>"Instructions","class"=>"form-control","placeholder"=>"","rows"=>10]);
+        $form->addTextarea("Instructions", "Faire les instructions pour le recette, en terminant chaque etape avec une point. 
+        Il n'y a pas besoin d'énumérer chaque etape", 
+        ["id"=>"Instructions","class"=>"form-control","placeholder"=>"","rows"=>10]);
         $form->addLabel("picture","Image du recette",["class"=>"form-label"]);
         $form->addInput("file","picture",["id"=>"picture", "class" => "form-control"]);
         $form->addLabel("pictureFalc","Image du recette accessible",["class"=>"form-label"]);
@@ -189,13 +192,14 @@ class crudController extends Controller
 
             //chemin d'image
                 $picture = "images/" . $_FILES["picture"]["name"];
-                $pictureFalc = "images/".$_FILES["pictureFalc"]["name"];
+                $pictureFalc = "images/" .$_FILES["pictureFalc"]["name"];
                 $recipeObject->setrecetteImage($picture);
                 $recipeObject->setrecetteFalc($pictureFalc);
             }
             //s'il n'y a pas une nouvelle image, ancien est gardee
             else{
                 $recipeObject->setrecetteImage($_POST["hidden"]);
+                $recipeObject->setrecetteFalc($_POST["hidden"]);
             }
             $recipe = new recipeModel();
             $recipe->updateRecipe($id, $recipeObject);
@@ -315,7 +319,7 @@ class crudController extends Controller
         $this->render("crud/addGallery",['addForm'=>$form->getFormElements()]);
     }
 //////////////////////////////////////////////////////////////////////////////////////
-    //supprime une recette
+    //supprime une image
     public function deleteGallery($id) {
         if(isset($_POST["true"])) {
             //this deletes the entry

@@ -8,10 +8,6 @@ if ($_SESSION['username'] == "Admin") {
     header("Location:index.php?controller=crud&action=login");
 }
 
-//Handles Password Control
-//require_once "protect.php";
-//use cefiiproject\crud\protect;
-
 $title = "Supression d'un image par enfant - admin seulement";
 ?>
 <div class="alert alert-warning" role="alert">

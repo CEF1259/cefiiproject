@@ -205,6 +205,16 @@ h2 {
     width: 80%;
 }
 
+.recipeBodyFalc {
+    display: flex;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.recipeBodyFalc img {
+    max-width: 100%;
+}
+
 .ingredientPage {
     border-style: solid;
     border-color: black;

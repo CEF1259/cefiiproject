@@ -8,11 +8,6 @@ if ($_SESSION['username'] == "Admin") {
     header("Location:index.php?controller=crud&action=login");
 }
 
-//Handles Password Control
-//require_once "protect.php";
-//use cefiiproject\crud\protect;
-//https://gist.github.com/eric1234/4692807
-
 $title = "Ajout d'une image dans la gallerie";
 ?>
 <h2>

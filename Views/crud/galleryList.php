@@ -7,9 +7,7 @@ if ($_SESSION['username'] == "Admin") {
     // Redirect them to the login page
     header("Location:index.php?controller=crud&action=login");
 }
-//Handles Password Control
-//require_once "protect.php";
-//use cefiiproject\crud\protect;
+
 $title ="Liste des images par enfants pour admin";
 ?>
 <h2>Liste des recettes - admin seulement</h2>

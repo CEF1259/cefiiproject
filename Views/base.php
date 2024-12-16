@@ -42,7 +42,7 @@
                             </div>
                             
                             <a id="propos" href="index.php?controller=home&action=about">A propos de nous &nbsp; <i class="fa-solid fa-question"></i></a>
-                            <a id="galerie" href="index.php?controller=gallery&action=gallery">Galerie par des enfants &nbsp; <i class="fa-solid fa-image"></i></a>
+                            <a id="galerie" href="index.php?controller=gallery&action=gallery">Galerie &nbsp; <i class="fa-solid fa-image"></i></a>
                         </div>
         
             <main>
