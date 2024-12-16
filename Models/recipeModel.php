@@ -72,7 +72,12 @@ class recipeModel extends dbConnect {
     public function deleteRecipe($id) {
         $this->request = $this->connection->prepare("DELETE FROM recipetable WHERE recetteId = $id");
         $this->executeTryCatch();
-    }
+
+         //reset the autoincrement
+         $this->request = $this->connection->prepare("SET  @num := 0; UPDATE recipetable SET recetteid = @num := (@num+1);
+          ALTER TABLE recipetable AUTO_INCREMENT = 1;");
+         $this->executeTryCatch();
+     }
 
     /////////////////////////////////////////////////////////
 
@@ -155,6 +160,15 @@ class recipeModel extends dbConnect {
                 //var_dump("here 2");
             }
             return $user;
+        }
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///////controls buttons on recipe pages/////////////
+        public function getTotalItems() {
+            $this->request = "SELECT COUNT(*) AS total FROM recipetable;";
+            $query = $this->connection->prepare($this->request);
+            $query->execute();
+            $result = $query->fetch();
+            return $result;
         }
     }
     ///////////////////////////////////////////////////////////////////////////////////

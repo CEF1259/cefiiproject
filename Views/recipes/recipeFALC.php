@@ -3,6 +3,13 @@
 namespace cefiiproject\Views\recipe;
 use cefiiproject\Models\recipeModel;
 $title = $recipe->recetteTitle;
+
+$currentPage = $recipe->recetteId;
+
+$recipes = new recipeModel();
+$totalItemsObject = $recipes->getTotalItems();
+$totalItemsArray = get_object_vars($totalItemsObject);
+$totalItems = $totalItemsArray["total"];
 ?>
 <aside class="recipeAside">
     <div class='recipeHeader'>
@@ -15,7 +22,9 @@ $title = $recipe->recetteTitle;
         <div class="arrows">
             <!--button that is supposed to go to the previous entry in the dbb. If no more entries goes to the last-->
             <div>
-               <i class="fa-solid fa-circle-arrow-left fa-2xl"></i>
+            <?php if ($currentPage > 1): ?>
+                    <a href="index.php?controller=recipes&action=showRecipeFalc&id=<?=$currentPage - 1?>"><i class="fa-solid fa-circle-arrow-left fa-2xl"></i></a>
+                <?php endif; ?>
             </div>
         </div>
 
@@ -25,7 +34,11 @@ $title = $recipe->recetteTitle;
 
         <div class="arrows">
                     <!--button that is supposed to go to the next entry in the dbb. If no more entries goes to the first-->
-            <div><i class="fa-solid fa-circle-arrow-right fa-2xl"></i></div>
+            <div>
+            <?php if ($currentPage < $totalItems): ?>
+                <a href="index.php?controller=recipes&action=showRecipeFalc&id=<?=$currentPage + 1?>"><i class="fa-solid fa-circle-arrow-right fa-2xl"></i></a>
+            <?php endif; ?>
+            </div>
         </div>
     </div>
 </aside>
